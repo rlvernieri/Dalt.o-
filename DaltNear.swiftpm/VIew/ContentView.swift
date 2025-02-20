@@ -7,10 +7,12 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
     
+    @State var isPopoverPresented = false
     @StateObject private var viewModel: ViewModel = .init()
-   
+    
     
     
     private let gridItems = [
@@ -33,7 +35,6 @@ struct ContentView: View {
     }
     
     var body: some View {
-    
         
         ZStack(alignment: .center) {
             
@@ -45,6 +46,12 @@ struct ContentView: View {
                     )
                 }
             }
+            .overlay(alignment: .top) {
+                Text("Ciao sono pippo")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .offset(y: -75)
+            }
             
             if let currentSymbol = viewModel.currentSymbol {
                 
@@ -54,8 +61,24 @@ struct ContentView: View {
                     gesture: drag
                 )
                 .opacity(viewModel.draggableToyOpacity)
-                .offset(y: -50)
+                .offset(y: -90)
             }
+            
+        }
+        .overlay(alignment: .topTrailing) {
+            Button("Hint") {
+                self.isPopoverPresented = true
+            }
+            .font(.system(size: 25))
+            .popover(isPresented: $isPopoverPresented) {
+                PopoverView()
+            }
+            .padding(.top, 24)
+            .padding(.horizontal, 64)
         }
     }
+}
+
+#Preview {
+    ContentView()
 }

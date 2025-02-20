@@ -15,7 +15,7 @@ enum Symbol: Int, Identifiable, CaseIterable, Hashable {
     case yellow = 4
     case brown = 5
     case blue = 6
-    case violet = 7
+    case purple = 7
     case black = 8
     case white = 9
     
@@ -29,7 +29,7 @@ enum Symbol: Int, Identifiable, CaseIterable, Hashable {
         case .yellow: .yellow
         case .brown: .brown
         case .blue: .blue
-        case .violet: .purple
+        case .purple: .purple
         case .black: .black
         case .white: .white
         }
@@ -43,7 +43,7 @@ enum Symbol: Int, Identifiable, CaseIterable, Hashable {
         case .yellow: .init("Yellow")
         case .brown: .init("Brown")
         case .blue: .init("Blue")
-        case .violet: .init("Violet")
+        case .purple: .init("Purple")
         case .black: .init("Black")
         case .white: .init("White")
         }

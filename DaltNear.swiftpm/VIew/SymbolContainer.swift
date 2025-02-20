@@ -35,6 +35,7 @@ struct SymbolContainer: View {
             }
             
         }
+        .frame(width: highlightedSize, height: highlightedSize)
         .overlay {
             GeometryReader { proxy -> Color in
                 viewModel.update(
@@ -45,6 +46,6 @@ struct SymbolContainer: View {
                 return Color.clear
             }
         }
-        .frame(width: highlightedSize, height: highlightedSize)
+        
     }
 }
